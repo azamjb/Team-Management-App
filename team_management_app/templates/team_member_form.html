@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <div class="form-container">
+    {% if is_adding %}
+      <h2 class="edittitle">Add Team Member</h2>
+    {% else %}
+      <h2 class="edittitle">Edit Team Member</h2>
+    {% endif %}
+    <p>Edit contact info, location, and role.</p>
+
+    <label class="rolelabel">Info</label>
+    <form method="post" class="team-member-form">
+      {% csrf_token %}
+      
+      {% for field in form %}
+        {% if field.name == "role" %}
+  
+          <div>
+            <label class="rolelabel">Role</label>
+            {% for choice in field.field.choices %}
+              <div>
+                <input type="radio" name="{{ field.name }}" value="{{ choice.0 }}" {% if field.value == choice.0 %} checked {% endif %}>
+               
+                {% if choice.1 == "Regular" %}
+                  {{ choice.1 }} - can't delete members
+                {% elif choice.1 == "Admin" %}
+                  {{ choice.1 }} - can delete members
+                {% else %}
+                  {{ choice.1 }}
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          
+          {% if field.value %}
+            <input type="{{ field.field.widget.input_type }}" name="{{ field.name }}" value="{{ field.value }}" id="id_{{ field.name }}" class="form-control">
+          {% else %}
+            <input type="{{ field.field.widget.input_type }}" name="{{ field.name }}" placeholder="{{ field.label }}" id="id_{{ field.name }}" class="form-control">
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
+      {% if not is_adding %}
+      <a href="{% url 'team_member_delete' form.instance.pk %}" class="delete-btn">Delete</a>
+      {% endif %}
+      <input type="submit" value="Save" class="save-btn">
+    </form>
+  </div>
+{% endblock %}

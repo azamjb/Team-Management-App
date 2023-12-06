@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <div class="team-members-container">
+    <h2>Team members</h2>
+    <p>You have {{ team_members.count }} team members.</p>
+    <div class="add-team-member-link">
+      <a href="{% url 'team_member_add' %}">+</a>
+    </div>
+    <ul>
+      {% for member in team_members %}
+        <li class="member-item">
+          <a href="{% url 'team_member_edit' member.id %}" class="member-link">
+            <img src="{% static 'team_management_app/pfp.webp' %}" alt="Profile Picture" class="profile-pic">
+            <div class="member-info">
+              {{ member.first_name }} {{ member.last_name }}
+              {% if member.role == 'admin' %}(admin){% endif %}
+              <div class="info">{{ member.phone_number }}</div>
+              <div class="info">{{ member.email }}</div>
+            </div>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

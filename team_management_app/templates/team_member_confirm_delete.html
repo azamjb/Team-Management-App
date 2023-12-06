@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Are you sure you want to delete {{ team_member }}?</h2>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="confirm-delete-btn">Confirm</button>
+    <a href="{% url 'team_member_list' %}" class="cancel-delete-btn">Cancel</a>
+  </form>
+{% endblock %}

@@ -1,0 +1,108 @@
+h2, p {
+    text-align: center; 
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto; 
+    max-width: 300px;
+    border-radius: 4px;
+    
+
+  
+}
+.confirm-delete-btn,
+.cancel-delete-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    color: rgb(208, 16, 16);
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px;
+}
+
+.confirm-btn {
+    background-color: #28a745; 
+}
+
+.confirm-btn:hover {
+    background-color: #218838;
+}
+
+.cancel-btn {
+    background-color: #dc3545; 
+}
+
+.cancel-btn:hover {
+    background-color: #c82333;
+}
+
+.team-members-container {
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+    padding: 20px;
+    max-width: 350px;
+    margin: 30px auto;
+    background-color: #ffffff;
+}
+
+li {
+    display: block;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    list-style: none; 
+}
+
+li.admin {
+    border-color: #428bca;
+}
+
+.info {
+    color: rgb(125, 125, 128);
+}
+
+.add-team-member-link {
+    text-align: center;
+    padding-bottom: 20px;
+}
+.add-team-member-link a {
+    
+    margin-top: 20px; 
+    font-size: 50px;
+}
+
+.member-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none; 
+    color: inherit; 
+}
+
+.member-item {
+    display: flex;
+    align-items: center; 
+    margin-bottom: 10px; 
+  }
+
+a {
+    color: #428bca;
+    text-decoration: none;
+    margin: 0 auto; 
+    text-align: center; 
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.profile-pic {
+
+    width: 100px;
+}
